@@ -21,7 +21,7 @@ public class SplashScreen extends AbstractScreen{
 				game.setScreen(new MenuScreen(game));
 			}
 			
-		}, 4);
+		}, 1);
 	}
 	@Override
 	public void render(float delta) {

@@ -9,7 +9,7 @@ public class DesktopLauncher {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.width=SpaceAttack.WINDOW_WIDTH;
 		config.height=SpaceAttack.WINDOW_HEIGHT;
-		config.title=SpaceAttack.GAME_NAME;
+		config.title=SpaceAttack.GAME_NAME+" by "+SpaceAttack.AUTHOR;
 		config.resizable=false;
 		new LwjglApplication(new SpaceAttack(), config);
 	}
