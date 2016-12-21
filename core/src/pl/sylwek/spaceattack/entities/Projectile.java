@@ -45,13 +45,16 @@ public class Projectile extends Rectangle{
 		return texture;
 	}
 	
-	public void collision(Enemy enemy) {
+	public boolean collision(AbstractEnemy enemy) {
 		if (this.overlaps(enemy)) {
 			counter++;
 			enemy.getDestroySound().play();
 			enemy.x=MathUtils.random(SpaceAttack.WINDOW_WIDTH-enemy.width/2);
 			enemy.y=MathUtils.random(SpaceAttack.WINDOW_HEIGHT-enemy.height/2);
+			return true;
 		}
+			return false;
+		
 		}
 	
 	public static int getCounter() {

@@ -31,7 +31,6 @@ public class Player extends Rectangle{
 	public void move(){
 		
 			if (Gdx.input.isKeyPressed(Keys.A)) {
-				System.out.println("A");
 				this.x -= 500 * Gdx.graphics.getDeltaTime();
 				if(this.x<=0){
 					this.x=0;
@@ -39,7 +38,6 @@ public class Player extends Rectangle{
 				
 			}
 			if (Gdx.input.isKeyPressed(Keys.D)) {
-				System.out.println("D");
 				this.x += 500 * Gdx.graphics.getDeltaTime();
 				if(this.x>=SpaceAttack.WINDOW_WIDTH-this.width){
 					this.x=SpaceAttack.WINDOW_WIDTH-this.width;
@@ -47,14 +45,12 @@ public class Player extends Rectangle{
 				
 			}
 			if (Gdx.input.isKeyPressed(Keys.W)) {
-				System.out.println("W");
 				this.y += 500 * Gdx.graphics.getDeltaTime();
 				if(this.y>=SpaceAttack.WINDOW_HEIGHT-this.height){
 					this.y=SpaceAttack.WINDOW_HEIGHT-this.height;
 				}
 			}
 			if (Gdx.input.isKeyPressed(Keys.S)) {
-				System.out.println("S");
 				this.y -= 500 * Gdx.graphics.getDeltaTime();
 				if(this.y<=0){
 					this.y=0;
@@ -74,14 +70,12 @@ public class Player extends Rectangle{
 				projectile.x=this.x+this.width/2-20;
 				projectile.y=this.y+this.height/2+20;
 				readyToShot=false;
-				System.out.println(readyToShot);
 				}
 				
 				
 			}
 			
 			projectile.y+=700*Gdx.graphics.getDeltaTime();
-			System.out.println(projectile.y);
 			
 			if(projectile.y>=SpaceAttack.WINDOW_HEIGHT){
 				projectile.y=SpaceAttack.WINDOW_HEIGHT+50;

@@ -3,9 +3,14 @@ package pl.sylwek.spaceattack.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.MathUtils;
 
+import pl.sylwek.spaceattack.EnemyType;
+import pl.sylwek.spaceattack.GameObjectFactory;
 import pl.sylwek.spaceattack.SpaceAttack;
-import pl.sylwek.spaceattack.entities.Enemy;
+import pl.sylwek.spaceattack.entities.AbstractEnemy;
+import pl.sylwek.spaceattack.entities.Alien;
+import pl.sylwek.spaceattack.entities.FlyingShit;
 import pl.sylwek.spaceattack.entities.Player;
 import pl.sylwek.spaceattack.entities.Projectile;
 import pl.sylwek.spaceattack.ui.ScoreLabel;
@@ -14,7 +19,8 @@ public class GamePlayScreen extends AbstractScreen{
 
 	private Texture backGroundImage;
 	private Player player;
-	private Enemy enemy;
+	private AbstractEnemy enemy;
+	private GameObjectFactory gameObjectFactory;
 	private Projectile projectile;
 	private ScoreLabel scoreLabel;
 	private Music gameMusic;
@@ -26,10 +32,12 @@ public class GamePlayScreen extends AbstractScreen{
 		gameMusic.play();
 		gameMusic.setVolume(0.1f);
 		
+		
 	}
 
 	@Override
 	protected void init() {
+		gameObjectFactory= new GameObjectFactory();
 		initBackGroundImage();
 		initPlayer();
 		initEnemy();
@@ -62,7 +70,13 @@ public class GamePlayScreen extends AbstractScreen{
 	}
 
 	private void initEnemy() {
-		enemy = new Enemy();
+
+		if(MathUtils.randomBoolean()==true){
+		enemy = gameObjectFactory.getOrderedEnemyType(EnemyType.ALIEN);
+		}else{
+		enemy = gameObjectFactory.getOrderedEnemyType(EnemyType.FLYING_SHIT);
+		}
+
 	}
 
 
@@ -90,9 +104,16 @@ public class GamePlayScreen extends AbstractScreen{
 		if(!gameMusic.isPlaying()){
 			gameMusic.play();
 		}
+		
 		player.move();
 		player.shoot(projectile);
-		projectile.collision(enemy);
+		if(projectile.collision(enemy)){
+			if(MathUtils.randomBoolean()==true){
+				enemy = gameObjectFactory.getOrderedEnemyType(EnemyType.ALIEN);
+				}else{
+				enemy = gameObjectFactory.getOrderedEnemyType(EnemyType.FLYING_SHIT);
+				}
+		};
 	}
 
 }
