@@ -2,7 +2,7 @@ package pl.sylwek.spaceattack;
 
 import pl.sylwek.spaceattack.entities.AbstractEnemy;
 import pl.sylwek.spaceattack.entities.Alien;
-import pl.sylwek.spaceattack.entities.FlyingShit;
+import pl.sylwek.spaceattack.entities.FlyingThing;
 
 public class GameObjectFactory {
 
@@ -18,9 +18,9 @@ public class GameObjectFactory {
 			
 		}
 		
-		if(type.equals(EnemyType.FLYING_SHIT)){
+		if(type.equals(EnemyType.FLYING_THING)){
 			
-			return new FlyingShit();
+			return new FlyingThing();
 		}
 		
 		return null;

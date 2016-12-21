@@ -1,5 +1,6 @@
 package pl.sylwek.spaceattack.screens;
 
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -19,6 +20,7 @@ public abstract class AbstractScreen implements Screen{
 	protected OrthographicCamera camera;
 	
 	protected SpriteBatch spriteBatch;
+	
 	
 	
 	public AbstractScreen(SpaceAttack game){
@@ -85,5 +87,6 @@ public abstract class AbstractScreen implements Screen{
 		// TODO Auto-generated method stub
 		
 	}
+	
  
 }

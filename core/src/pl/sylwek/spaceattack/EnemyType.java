@@ -1,5 +1,5 @@
 package pl.sylwek.spaceattack;
 
 public enum EnemyType {
-	FLYING_SHIT,ALIEN
+	FLYING_THING,ALIEN
 }

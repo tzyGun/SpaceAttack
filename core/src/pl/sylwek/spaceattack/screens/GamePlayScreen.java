@@ -1,6 +1,7 @@
 package pl.sylwek.spaceattack.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
@@ -10,7 +11,7 @@ import pl.sylwek.spaceattack.GameObjectFactory;
 import pl.sylwek.spaceattack.SpaceAttack;
 import pl.sylwek.spaceattack.entities.AbstractEnemy;
 import pl.sylwek.spaceattack.entities.Alien;
-import pl.sylwek.spaceattack.entities.FlyingShit;
+import pl.sylwek.spaceattack.entities.FlyingThing;
 import pl.sylwek.spaceattack.entities.Player;
 import pl.sylwek.spaceattack.entities.Projectile;
 import pl.sylwek.spaceattack.ui.ScoreLabel;
@@ -74,7 +75,7 @@ public class GamePlayScreen extends AbstractScreen{
 		if(MathUtils.randomBoolean()==true){
 		enemy = gameObjectFactory.getOrderedEnemyType(EnemyType.ALIEN);
 		}else{
-		enemy = gameObjectFactory.getOrderedEnemyType(EnemyType.FLYING_SHIT);
+		enemy = gameObjectFactory.getOrderedEnemyType(EnemyType.FLYING_THING);
 		}
 
 	}
@@ -84,6 +85,9 @@ public class GamePlayScreen extends AbstractScreen{
 	public void render(float delta) {
 		
 		super.render(delta);
+		if(Gdx.input.isKeyPressed(Keys.ESCAPE)){
+			Gdx.app.exit();
+		}
 		update();
 		spriteBatch.begin();
 		spriteBatch.draw(backGroundImage, 0,0);
@@ -111,7 +115,7 @@ public class GamePlayScreen extends AbstractScreen{
 			if(MathUtils.randomBoolean()==true){
 				enemy = gameObjectFactory.getOrderedEnemyType(EnemyType.ALIEN);
 				}else{
-				enemy = gameObjectFactory.getOrderedEnemyType(EnemyType.FLYING_SHIT);
+				enemy = gameObjectFactory.getOrderedEnemyType(EnemyType.FLYING_THING);
 				}
 		};
 	}
